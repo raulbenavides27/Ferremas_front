@@ -1,29 +1,51 @@
+body {
+  margin: 0; /* Eliminar el margen por defecto del body */
+}
+
 nav {
-    background-color: #343a40; /* Color de fondo del menú */
-    padding: 10px; /* Espacio interior */
-  }
-  
-  ul {
-    list-style-type: none; /* Quitar los puntos de lista */
-    margin: 0;
-    padding: 0;
-  }
-  
-  li {
-    display: inline; /* Mostrar los elementos de menú en línea */
-    margin-right: 20px; /* Espacio entre elementos de menú */
-  }
-  
-  a {
-    color: #ffffff; /* Color del texto del enlace */
-    text-decoration: none; /* Quitar subrayado de los enlaces */
-    font-weight: bold; /* Texto en negrita */
-    padding: 10px; /* Espacio interior de los enlaces */
-    transition: all 0.3s ease; /* Transición suave al pasar el ratón */
-  }
-  
-  a:hover {
-    background-color: #6c757d; /* Color de fondo al pasar el ratón */
-    border-radius: 5px; /* Bordes redondeados */
-  }
-  
+  background-color: #343a40; /* Color de fondo del menú */
+  padding: 10px; /* Espacio interior */
+  display: flex; /* Alinear elementos del menú */
+  align-items: center; /* Centrar verticalmente */
+  position: fixed; /* Fijar el menú en la parte superior */
+  top: 0; /* Posición superior 0 */
+  width: 100%; /* Hacer que el menú ocupe todo el ancho de la pantalla */
+  z-index: 1000; /* Asegurar que el menú esté por encima de otros elementos */
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff; /* Color del texto del logo */
+  margin-right: 20px; /* Espacio entre el logo y el menú */
+}
+
+ul {
+  list-style-type: none; /* Quitar los puntos de lista */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Mostrar los elementos de menú en línea */
+}
+
+li {
+  display: inline; /* Mostrar los elementos de menú en línea */
+  margin-right: 20px; /* Espacio entre elementos de menú */
+}
+
+a {
+  color: #ffffff; /* Color del texto del enlace */
+  text-decoration: none; /* Quitar subrayado de los enlaces */
+  font-weight: bold; /* Texto en negrita */
+  padding: 10px; /* Espacio interior de los enlaces */
+  transition: all 0.3s ease; /* Transición suave al pasar el ratón */
+}
+
+a:hover {
+  background-color: #6c757d; /* Color de fondo al pasar el ratón */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Añadir padding-top al body para evitar que el contenido quede debajo del menú fijo */
+body {
+  padding-top: 60px; /* Ajustar este valor según la altura de tu menú */
+}
