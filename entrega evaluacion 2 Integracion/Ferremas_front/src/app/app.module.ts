@@ -5,10 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
+import { VentasComponent } from './pages/ventas/ventas.component';
+import { ProductosComponent } from './pages/productos/productos.component';
+import { DespachosComponent } from './pages/despachos/despachos.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VentasComponent,
+    ProductosComponent,
+    DespachosComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

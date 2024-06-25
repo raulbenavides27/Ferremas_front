@@ -1,0 +1,90 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="d-flex align-items-stretch">
+      <!-- Formulario de Crear/Editar Despacho -->
+      <div class="card p-4 shadow m-2" style="width: 400px;">
+        <h2 class="mb-4 text-center">{{ despachoForm.value.id ? 'Editar Despacho' : 'Crear Despacho' }}</h2>
+        <form [formGroup]="despachoForm" (ngSubmit)="guardar()">
+          <div class="form-group">
+            <label for="idCliente">ID Cliente</label>
+            <input type="number" id="idCliente" formControlName="idCliente" class="form-control">
+            <div *ngIf="despachoForm.get('idCliente')?.invalid && (despachoForm.get('idCliente')?.dirty || despachoForm.get('idCliente')?.touched)"
+              class="text-danger">
+              <div *ngIf="despachoForm.get('idCliente')?.errors?.['required']">ID Cliente es requerido.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" formControlName="direccion" class="form-control">
+            <div *ngIf="despachoForm.get('direccion')?.invalid && (despachoForm.get('direccion')?.dirty || despachoForm.get('direccion')?.touched)"
+              class="text-danger">
+              <div *ngIf="despachoForm.get('direccion')?.errors?.['required']">Dirección es requerida.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fechaEntrega">Fecha de Entrega</label>
+            <input type="date" id="fechaEntrega" formControlName="fechaEntrega" class="form-control">
+            <div *ngIf="despachoForm.get('fechaEntrega')?.invalid && (despachoForm.get('fechaEntrega')?.dirty || despachoForm.get('fechaEntrega')?.touched)"
+              class="text-danger">
+              <div *ngIf="despachoForm.get('fechaEntrega')?.errors?.['required']">Fecha de Entrega es requerida.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="idProducto">ID Producto</label>
+            <input type="number" id="idProducto" formControlName="idProducto" class="form-control">
+            <div *ngIf="despachoForm.get('idProducto')?.invalid && (despachoForm.get('idProducto')?.dirty || despachoForm.get('idProducto')?.touched)"
+              class="text-danger">
+              <div *ngIf="despachoForm.get('idProducto')?.errors?.['required']">ID Producto es requerido.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" formControlName="cantidad" class="form-control">
+            <div *ngIf="despachoForm.get('cantidad')?.invalid && (despachoForm.get('cantidad')?.dirty || despachoForm.get('cantidad')?.touched)"
+              class="text-danger">
+              <div *ngIf="despachoForm.get('cantidad')?.errors?.['required']">Cantidad es requerida.</div>
+              <div *ngIf="despachoForm.get('cantidad')?.errors?.['min']">Cantidad debe ser mayor que cero.</div>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="despachoForm.invalid">Guardar</button>
+          </div>
+          <div class="form-group mt-3">
+            <button type="button" class="btn btn-secondary w-100" (click)="limpiarFormulario()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+  
+      <!-- Lista de Despachos Registrados -->
+      <div class="card p-4 shadow m-2" style="flex: 1;">
+        <h2>Despachos registrados</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>ID Cliente</th>
+              <th>Dirección</th>
+              <th>Fecha de Entrega</th>
+              <th>ID Producto</th>
+              <th>Cantidad</th>
+              <th>Opción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let despacho of despachos">
+              <td>{{ despacho.id }}</td>
+              <td>{{ despacho.idCliente }}</td>
+              <td>{{ despacho.direccion }}</td>
+              <td>{{ despacho.fechaEntrega }}</td>
+              <td>{{ despacho.idProducto }}</td>
+              <td>{{ despacho.cantidad }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="editar(despacho)">Editar</button>
+                <button class="btn btn-danger btn-sm" (click)="eliminar(despacho)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

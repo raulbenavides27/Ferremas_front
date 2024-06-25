@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="d-flex align-items-stretch">
+      <!-- Formulario de Crear/Editar Producto -->
+      <div class="card p-4 shadow m-2" style="width: 400px;">
+        <h2 class="mb-4 text-center">{{ productoForm.value.id ? 'Editar Producto' : 'Crear Producto' }}</h2>
+        <form [formGroup]="productoForm" (ngSubmit)="guardar()">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" formControlName="name" class="form-control">
+            <div
+            
+              *ngIf="productoForm.get('name')?.invalid && (productoForm.get('name')?.dirty || productoForm.get('name')?.touched)"
+              class="text-danger">
+              <div *ngIf="productoForm.get('name')?.errors?.['required']">Nombre es requerido.</div>
+              <div *ngIf="productoForm.get('name')?.errors?.['minlength']">Nombre debe tener al menos 3 caracteres.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price">Precio</label>
+            <input type="number" id="price" formControlName="price" class="form-control">
+            <div
+              *ngIf="productoForm.get('price')?.invalid && (productoForm.get('price')?.dirty || productoForm.get('price')?.touched)"
+              class="text-danger">
+              <div *ngIf="productoForm.get('price')?.errors?.['required']">Precio es requerido.</div>
+              <div *ngIf="productoForm.get('price')?.errors?.['min']">Precio debe ser un valor positivo.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" formControlName="fecha" class="form-control">
+            <div
+              *ngIf="productoForm.get('fecha')?.invalid && (productoForm.get('fecha')?.dirty || productoForm.get('fecha')?.touched)"
+              class="text-danger">
+              <div *ngIf="productoForm.get('fecha')?.errors?.['required']">Fecha es requerida.</div>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" class="btn btn-primary w-100" [disabled]="productoForm.invalid">Guardar</button>
+          </div>
+          <div class="form-group mt-3">
+            <button type="button" class="btn btn-secondary w-100 " (click)="limpiarFormulario()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+  
+      <!-- Lista de Productos Registrados -->
+      <div class="card p-4 shadow m-2" style="flex: 1;">
+        <h2>Productos registrados</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Fecha</th>
+              <th>Opción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of productos">
+              <th>{{item.id}}</th>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.fecha}}</td>
+              <td>
+                  <button class="btn btn-primary btn-sm" (click)="editar(item)">
+                    Editar
+                  </button>
+                  <button class="btn btn-danger btn-sm" (click)="eliminar(item)">
+                    Eliminar
+                  </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
