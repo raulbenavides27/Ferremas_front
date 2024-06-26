@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VentasService {
@@ -27,14 +28,6 @@ public class VentasService {
     public ResponseEntity<Object> newVentas(Ventas ventas) {
         datos = new HashMap<>();
 
-      //  Optional<Ventas> res = ventasRepository.findByIdClienteAndFecha(ventas.getIdCliente(), ventas.getFechaEntrega());
-
-       /*  if (res.isPresent() && ventas.getId() == null) {
-            datos.put("ERROR", true);
-            datos.put("MESSAGE", "DESPACHO YA EXISTE PARA ESTE CLIENTE Y FECHA");
-            return new ResponseEntity<>(datos, HttpStatus.CONFLICT);
-        }*/
-
         if (ventas.getId() != null) {
             datos.put("MESSAGE", "ACTUALIZADO");
         }
@@ -45,17 +38,27 @@ public class VentasService {
         return new ResponseEntity<>(datos, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<Object> updateVentas(Ventas ventas) {
+    public ResponseEntity<Object> updateVentas(Long id, Ventas ventas) {
         datos = new HashMap<>();
 
-        if (!ventasRepository.existsById(ventas.getId())) {
+        Optional<Ventas> optionalVenta = ventasRepository.findById(id);
+        if (!optionalVenta.isPresent()) {
             datos.put("ERROR", true);
             datos.put("MESSAGE", "DESPACHO NO EXISTE");
             return new ResponseEntity<>(datos, HttpStatus.NOT_FOUND);
         }
 
-        ventasRepository.save(ventas);
-        datos.put("data", ventas);
+        Ventas existingVenta = optionalVenta.get();
+        existingVenta.setIdCliente(ventas.getIdCliente());
+        existingVenta.setFecha(ventas.getFecha());
+        existingVenta.setIdProducto(ventas.getIdProducto());
+        existingVenta.setCantidad(ventas.getCantidad());
+        existingVenta.setTotalNeto(ventas.getTotalNeto());
+        existingVenta.setIva(ventas.getIva());
+        existingVenta.setTotal(ventas.getTotal());
+
+        ventasRepository.save(existingVenta);
+        datos.put("data", existingVenta);
         datos.put("MESSAGE", "ACTUALIZADO CON ÉXITO");
         return new ResponseEntity<>(datos, HttpStatus.OK);
     }
@@ -75,4 +78,3 @@ public class VentasService {
         return new ResponseEntity<>(datos, HttpStatus.ACCEPTED);
     }
 }
-

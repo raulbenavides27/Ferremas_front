@@ -48,10 +48,6 @@
               <div *ngIf="ventaForm.get('fecha')?.errors?.['required']">Fecha es requerida.</div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" formControlName="direccion" class="form-control">
-          </div>
           <div class="form-group mt-3">
             <button type="submit" class="btn btn-primary w-100" [disabled]="ventaForm.invalid">Guardar</button>
           </div>

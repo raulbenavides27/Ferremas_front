@@ -26,7 +26,7 @@ export class VentasComponent implements OnInit {
       iva: [''],
       total: [''],
       fecha: ['', Validators.required],
-      direccion: ['']
+
     });
 
     this.loadVentas(); // Cargar las ventas existentes al iniciar el componente
@@ -97,8 +97,7 @@ export class VentasComponent implements OnInit {
       totalNeto: venta.totalNeto,
       iva: venta.iva,
       total: venta.total,
-      fecha: venta.fecha,
-      direccion: venta.direccion
+      fecha: venta.fecha
     });
   }
 

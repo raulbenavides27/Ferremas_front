@@ -18,7 +18,7 @@ public class VentasController {
 
     @GetMapping
     public List<Ventas> getVentas() {
-        return ventasService.getVentas();
+        return this.ventasService.getVentas();
     }
 
     @PostMapping
@@ -26,12 +26,12 @@ public class VentasController {
         return this.ventasService.newVentas(ventas);
     }
 
-    @PutMapping
-    public ResponseEntity<Object> actualizarDespachado(@RequestBody Ventas ventas) {
-        return this.ventasService.newVentas(ventas);
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Object> actualizarDespachado(@PathVariable("id") Long id, @RequestBody Ventas ventas) {
+        return this.ventasService.updateVentas(id, ventas);
     }
 
-    @DeleteMapping(path = "{ventasId}")
+    @DeleteMapping(path = "/{ventasId}")
     public ResponseEntity<Object> eliminar(@PathVariable("ventasId") Long id) {
         return this.ventasService.deleteVentas(id);
     }

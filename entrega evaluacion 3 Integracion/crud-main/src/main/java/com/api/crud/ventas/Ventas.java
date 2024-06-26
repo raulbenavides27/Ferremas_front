@@ -12,7 +12,6 @@ public class Ventas {
     private Long  id;
     @Column
     private Long idCliente;
-    private String condicion_de_pago ;
     private LocalDate fecha;
     private Long idProducto;
     private int cantidad;
@@ -23,10 +22,9 @@ public class Ventas {
     public Ventas() {
     }
 
-    public Ventas(Long id, Long idCliente, String condicion_de_pago , LocalDate fecha, Long idProducto, int cantidad, float totalNeto, float iva, float total) {
+    public Ventas(Long id, Long idCliente, LocalDate fecha, Long idProducto, int cantidad, float totalNeto, float iva, float total) {
         this.id = id;
         this.idCliente = idCliente;
-        this.condicion_de_pago  = condicion_de_pago ;
         this.fecha = fecha;
         this.idProducto = idProducto;
         this.cantidad = cantidad;
@@ -35,15 +33,15 @@ public class Ventas {
         this.total = total;
     }
 
-    public Ventas(Long idCliente, String condicion_de_pago , LocalDate fecha, Long idProducto, int cantidad, float totalNeto, float iva, float total) {
+    public Ventas(Long idCliente, LocalDate fecha, Long idProducto, int cantidad, float totalNeto, float iva, float total) {
+
         this.idCliente = idCliente;
-        this.condicion_de_pago  = condicion_de_pago ;
-        this.fecha = fecha;
         this.idProducto = idProducto;
         this.cantidad = cantidad;
         this.totalNeto = totalNeto;
         this.iva = iva;
         this.total = total;
+        this.fecha = fecha;
     }
 
     public Long getId() {
@@ -62,13 +60,6 @@ public class Ventas {
         this.idCliente = idCliente;
     }
 
-    public String getDireccion() {
-        return condicion_de_pago ;
-    }
-
-    public void setDireccion(String condicion_de_pago ) {
-        this.condicion_de_pago  = condicion_de_pago ;
-    }
 
     public LocalDate getFecha() {
         return fecha;
