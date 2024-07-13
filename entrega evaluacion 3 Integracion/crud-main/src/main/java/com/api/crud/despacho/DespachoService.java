@@ -12,8 +12,6 @@ import java.util.Optional;
 @Service
 public class DespachoService {
 
-    HashMap<String, Object> datos;
-
     private final DespachoRepository despachoRepository;
 
     @Autowired
@@ -22,58 +20,43 @@ public class DespachoService {
     }
 
     public List<Despacho> getDespacho() {
-        return this.despachoRepository.findAll();
+        return despachoRepository.findAll();
     }
 
-    public ResponseEntity<Object> newDespacho(Despacho despacho) {
-        datos = new HashMap<>();
-
-        Optional<Despacho> res = despachoRepository.findByIdClienteAndFechaEntrega(despacho.getIdCliente(), despacho.getFechaEntrega());
-
-      /*  if (res.isPresent() && despacho.getId() == null) {
-            datos.put("ERROR", true);
-            datos.put("MESSAGE", "DESPACHO YA EXISTE PARA ESTE CLIENTE Y FECHA");
-            return new ResponseEntity<>(datos, HttpStatus.CONFLICT);
-        }*/
-
-        if (despacho.getId() != null) {
-            datos.put("MESSAGE", "ACTUALIZADO");
-        }
-
-        despachoRepository.save(despacho);
-        datos.put("data", despacho);
-        datos.put("MESSAGE", "Se guardó con éxito");
-        return new ResponseEntity<>(datos, HttpStatus.CREATED);
+    public ResponseEntity<Object> createDespacho(Despacho despacho) {
+        HashMap<String, Object> response = new HashMap<>();
+        Despacho savedDespacho = despachoRepository.save(despacho);
+        response.put("data", savedDespacho);
+        response.put("MESSAGE", "Se guardó con éxito");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     public ResponseEntity<Object> updateDespacho(Despacho despacho) {
-        datos = new HashMap<>();
+        HashMap<String, Object> response = new HashMap<>();
+        Optional<Despacho> existingDespacho = despachoRepository.findById(despacho.getId());
 
-        if (!despachoRepository.existsById(despacho.getId())) {
-            datos.put("ERROR", true);
-            datos.put("MESSAGE", "DESPACHO NO EXISTE");
-            return new ResponseEntity<>(datos, HttpStatus.NOT_FOUND);
+        if (existingDespacho.isEmpty()) {
+            response.put("ERROR", true);
+            response.put("MESSAGE", "DESPACHO NO EXISTE");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
-        despachoRepository.save(despacho);
-        datos.put("data", despacho);
-        datos.put("MESSAGE", "ACTUALIZADO CON ÉXITO");
-        return new ResponseEntity<>(datos, HttpStatus.OK);
+        Despacho updatedDespacho = despachoRepository.save(despacho);
+        response.put("data", updatedDespacho);
+        response.put("MESSAGE", "ACTUALIZADO CON ÉXITO");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     public ResponseEntity<Object> deleteDespacho(Long id) {
-        datos = new HashMap<>();
-
-        boolean existe = this.despachoRepository.existsById(id);
-        if (!existe) {
-            datos.put("ERROR", true);
-            datos.put("MESSAGE", "ESTE PRODUCTO NO EXISTE");
-            return new ResponseEntity<>(datos, HttpStatus.CONFLICT);
+        HashMap<String, Object> response = new HashMap<>();
+        if (!despachoRepository.existsById(id)) {
+            response.put("ERROR", true);
+            response.put("MESSAGE", "ESTE DESPACHO NO EXISTE");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
         despachoRepository.deleteById(id);
-        datos.put("data", "despacho eliminado");
-        return new ResponseEntity<>(datos, HttpStatus.ACCEPTED);
+        response.put("MESSAGE", "Despacho eliminado con éxito");
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 }
-

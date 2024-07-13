@@ -1,7 +1,6 @@
 package com.api.crud.despacho;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -9,41 +8,34 @@ import java.time.LocalDate;
 public class Despacho {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long  id;
-    @Column
-    private Long idCliente;
+    private Long id;
+
+    @Column(unique = true)
+    private String idCliente;
+
     private String direccion;
     private LocalDate fechaEntrega;
-    private Long idProducto;
+    private String idProducto;
     private int cantidad;
-    private float totalNeto;
-    private float iva;
-    private float total;
 
     public Despacho() {
     }
 
-    public Despacho(Long id, Long idCliente, String direccion, LocalDate fechaEntrega, Long idProducto, int cantidad, float totalNeto, float iva, float total) {
+    public Despacho(Long id, String idCliente, String direccion, LocalDate fechaEntrega, String idProducto, int cantidad) {
         this.id = id;
         this.idCliente = idCliente;
         this.direccion = direccion;
         this.fechaEntrega = fechaEntrega;
         this.idProducto = idProducto;
         this.cantidad = cantidad;
-        this.totalNeto = totalNeto;
-        this.iva = iva;
-        this.total = total;
     }
 
-    public Despacho(Long idCliente, String direccion, LocalDate fechaEntrega, Long idProducto, int cantidad, float totalNeto, float iva, float total) {
+    public Despacho(String idCliente, String direccion, LocalDate fechaEntrega, String idProducto, int cantidad) {
         this.idCliente = idCliente;
         this.direccion = direccion;
         this.fechaEntrega = fechaEntrega;
         this.idProducto = idProducto;
         this.cantidad = cantidad;
-        this.totalNeto = totalNeto;
-        this.iva = iva;
-        this.total = total;
     }
 
     public Long getId() {
@@ -54,11 +46,11 @@ public class Despacho {
         this.id = id;
     }
 
-    public Long getIdCliente() {
+    public String getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Long idCliente) {
+    public void setIdCliente(String idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -78,11 +70,11 @@ public class Despacho {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public Long getIdProducto() {
+    public String getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(Long idProducto) {
+    public void setIdProducto(String idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -93,29 +85,4 @@ public class Despacho {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
-    public float getTotalNeto() {
-        return totalNeto;
-    }
-
-    public void setTotalNeto(float totalNeto) {
-        this.totalNeto = totalNeto;
-    }
-
-    public float getIva() {
-        return iva;
-    }
-
-    public void setIva(float iva) {
-        this.iva = iva;
-    }
-
-    public float getTotal() {
-        return total;
-    }
-
-    public void setTotal(float total) {
-        this.total = total;
-    }
-
 }

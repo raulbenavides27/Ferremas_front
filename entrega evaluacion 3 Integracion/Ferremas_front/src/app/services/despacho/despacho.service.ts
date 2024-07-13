@@ -16,11 +16,11 @@ export class DespachosService {
   }
 
   public saveDespacho(despacho: any): Observable<any> {
-    return this.httpClient.post(`${this.API_SERVER}/despachos`, despacho);
+    return this.httpClient.post<any>(`${this.API_SERVER}/despachos`, despacho);
   }
 
   public updateDespacho(despacho: any): Observable<any> {
-    return this.httpClient.put(`${this.API_SERVER}/despachos/${despacho.id}`, despacho);
+    return this.httpClient.put<any>(`${this.API_SERVER}/despachos/${despacho.id}`, despacho);
   }
 
   public deleteDespacho(id: number): Observable<boolean> {

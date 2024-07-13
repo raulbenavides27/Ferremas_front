@@ -1,7 +1,5 @@
 package com.api.crud.product;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 import java.time.Period;
 
