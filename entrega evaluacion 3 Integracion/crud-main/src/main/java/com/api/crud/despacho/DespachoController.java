@@ -9,6 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "api/v1/despachos")
 public class DespachoController {
+
     private final DespachoService despachoService;
 
     @Autowired
@@ -17,22 +18,22 @@ public class DespachoController {
     }
 
     @GetMapping
-    public List<Despacho> getDespachos() {
-        return despachoService.getDespacho();
+    public List<Despacho> getDespachos() {return despachoService.getDespacho();
     }
 
     @PostMapping
-    public ResponseEntity<Object> registrarDespachado(@RequestBody Despacho despacho) {
-        return this.despachoService.newDespacho(despacho);
+    public ResponseEntity<Object> registrarDespacho(@RequestBody Despacho despacho) {
+        return despachoService.createDespacho(despacho);
     }
 
-    @PutMapping
-    public ResponseEntity<Object> actualizarDespachado(@RequestBody Despacho despacho) {
-        return this.despachoService.newDespacho(despacho);
+    @PutMapping( "/{id}")
+    public ResponseEntity<Object> actualizarDespachado(@PathVariable Long id, @RequestBody Despacho despacho) {
+        return despachoService.updateDespacho(despacho);
     }
 
-    @DeleteMapping(path = "{despachoId}")
-    public ResponseEntity<Object> eliminar(@PathVariable("despachoId") Long id) {
-        return this.despachoService.deleteDespacho(id);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> eliminar(@PathVariable Long id) {
+        return despachoService.deleteDespacho(id);
     }
 }
+

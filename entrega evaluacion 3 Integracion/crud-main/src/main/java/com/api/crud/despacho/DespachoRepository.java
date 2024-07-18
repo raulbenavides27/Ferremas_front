@@ -8,7 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface DespachoRepository extends JpaRepository<Despacho, Long> {
-    // Ejemplo de método de consulta adicional
-    Optional<Despacho> findByIdClienteAndFechaEntrega(Long idCliente, LocalDate fechaEntrega);
+    Optional<Despacho> findByIdClienteAndFechaEntrega(String idCliente, LocalDate fechaEntrega);
 }
-
