@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a17005eb-9f6c-426c-97dd-051792f83e2f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../CRUD Despachos.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD Producto.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CRUD Ventas.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/.browserslistrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/menu/menu.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/menu/menu.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/menu/menu.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/menu/menu.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/despachos/despachos.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/despachos/despachos.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/despachos/despachos.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/despachos/despachos.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/productos/productos.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/productos/productos.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/productos/productos.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/productos/productos.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/ventas/ventas.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/ventas/ventas.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/ventas/ventas.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/pages/ventas/ventas.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/services/despacho/despacho.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/services/despacho/despacho.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/services/producto/producto.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/services/producto/producto.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/services/ventas/ventas.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/app/services/ventas/ventas.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Ferremas_front/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/FerreteriaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/despacho/Despacho.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/despacho/DespachoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/despacho/DespachoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/despacho/DespachoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/product/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/product/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/product/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/product/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/ventas/Ventas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/ventas/VentasController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/ventas/VentasRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/api/crud/ventas/VentasService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/api/crud/FerreteriaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/FerreteriaApplication$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/FerreteriaApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/despacho/Despacho.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/despacho/DespachoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/despacho/DespachoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/despacho/DespachoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/product/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/product/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/product/ProductRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/product/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/ventas/Ventas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/ventas/VentasController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/ventas/VentasRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/api/crud/ventas/VentasService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/api/crud/FerreteriaApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crud.sql" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2j4O1mBhNAfoxJkf0OilDu8ZSZ3" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.FerreteriaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Entrega__final&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="FerreteriaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="crud" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api.crud.FerreteriaApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.api.crud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.FerreteriaApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a17005eb-9f6c-426c-97dd-051792f83e2f" name="Changes" comment="" />
+      <created>1720642688288</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720642688288</updated>
+      <workItem from="1720642696469" duration="1622000" />
+      <workItem from="1721321645363" duration="330000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
