@@ -17,7 +17,7 @@ export class MenuComponent implements OnInit {
   }
 
   checkServerConnection() {
-    const apiUrl = "http://localhost:8080/api/v1/Product";
+    const apiUrl = "http://localhost:8080/api/v1/producto";
 
     this.http.get(apiUrl).subscribe(
       () => {

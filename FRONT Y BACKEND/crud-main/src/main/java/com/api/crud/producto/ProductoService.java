@@ -1,4 +1,4 @@
-package com.api.crud.product;
+package com.api.crud.producto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,34 +10,52 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductService {
+public class ProductoService {
 
-    private final ProductRepository productRepository;
+    private final ProductoRepository productoRepository;
 
     @Autowired
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    public ProductoService(ProductoRepository productoRepository) {
+        this.productoRepository = productoRepository;
     }
 
     // Método para obtener todos los productos
-    public List<Product> getProducts() {
-        return productRepository.findAll();
+    public List<Producto> getProductos() {
+        return productoRepository.findAll();
     }
 
     // Método para registrar un nuevo producto
-    public ResponseEntity<Object> createProduct(Product product) {
+    public ResponseEntity<Object> createProducto(Producto producto) {
         HashMap<String, Object> datos = new HashMap<>();
 
         // Verificar si el producto ya existe por nombre
-        Optional<Product> existingProduct = productRepository.findProductByName(product.getName());
-        if (existingProduct.isPresent()) {
+        Optional<Producto> existingProductByName = productoRepository.findProductByName(producto.getName());
+        if (existingProductByName.isPresent()) {
             datos.put("ERROR", true);
-            datos.put("MESSAGE", "Este producto ya existe.");
+            datos.put("MESSAGE", "Este producto ya existe con el nombre proporcionado.");
             return new ResponseEntity<>(datos, HttpStatus.CONFLICT);
         }
 
+        // Verificar si el producto ya existe por código
+        Optional<Producto> existingProductByCodigo = productoRepository.findProductByCodigo(producto.getCodigo());
+        if (existingProductByCodigo.isPresent()) {
+            datos.put("ERROR", true);
+            datos.put("MESSAGE", "Este producto ya existe con el código proporcionado.");
+            return new ResponseEntity<>(datos, HttpStatus.CONFLICT);
+        }
+
+        // Verificar si el producto ya existe por ean13 (permitir nulos)
+        if (producto.getEan13() != null) {
+            Optional<Producto> existingProductByEan13 = productoRepository.findProductByEan13(producto.getEan13());
+            if (existingProductByEan13.isPresent()) {
+                datos.put("ERROR", true);
+                datos.put("MESSAGE", "Este producto ya existe con el código EAN-13 proporcionado.");
+                return new ResponseEntity<>(datos, HttpStatus.CONFLICT);
+            }
+        }
+
         // Guardar el nuevo producto
-        Product savedProduct = productRepository.save(product);
+        Producto savedProduct = productoRepository.save(producto);
 
         // Preparar la respuesta
         datos.put("MESSAGE", "Producto creado.");
@@ -47,19 +65,32 @@ public class ProductService {
     }
 
     // Método para actualizar un producto existente
-    public ResponseEntity<Object> updateProduct(Product product) {
+    public ResponseEntity<Object> updateProducto(Long id, Producto producto) {
         HashMap<String, Object> datos = new HashMap<>();
 
-        // Verificar si el producto existe
-        Optional<Product> existingProduct = productRepository.findById(product.getId());
+        // Verificar si el producto existe por id
+        Optional<Producto> existingProduct = productoRepository.findById(id);
         if (existingProduct.isEmpty()) {
             datos.put("ERROR", true);
             datos.put("MESSAGE", "Producto no encontrado para actualizar.");
             return new ResponseEntity<>(datos, HttpStatus.NOT_FOUND);
         }
 
-        // Actualizar el producto
-        Product updatedProduct = productRepository.save(product);
+        // Actualizar el ID del producto
+        producto.setId(id);
+
+        // Verificar si el producto ya existe por ean13 (permitir nulos)
+        if (producto.getEan13() != null) {
+            Optional<Producto> existingProductByEan13 = productoRepository.findProductByEan13(producto.getEan13());
+            if (existingProductByEan13.isPresent() && !existingProductByEan13.get().getId().equals(id)) {
+                datos.put("ERROR", true);
+                datos.put("MESSAGE", "Este producto ya existe con el código EAN-13 proporcionado.");
+                return new ResponseEntity<>(datos, HttpStatus.CONFLICT);
+            }
+        }
+
+        // Guardar el producto actualizado
+        Producto updatedProduct = productoRepository.save(producto);
 
         // Preparar la respuesta
         datos.put("MESSAGE", "Producto actualizado.");
@@ -68,20 +99,21 @@ public class ProductService {
         return new ResponseEntity<>(datos, HttpStatus.OK);
     }
 
-    // Método para eliminar un producto por su ID
-    public ResponseEntity<Object> deleteProduct(Long id) {
+    // Método para eliminar un producto existente
+    public ResponseEntity<Object> deleteProducto(Long id) {
         HashMap<String, Object> datos = new HashMap<>();
 
-        // Verificar si el producto existe
-        if (!productRepository.existsById(id)) {
+        // Verificar si el producto existe por id
+        if (!productoRepository.existsById(id)) {
             datos.put("ERROR", true);
             datos.put("MESSAGE", "El producto no existe.");
             return new ResponseEntity<>(datos, HttpStatus.NOT_FOUND);
         }
 
-        // Eliminar el producto
-        productRepository.deleteById(id);
+        // Eliminar el producto por id
+        productoRepository.deleteById(id);
 
+        // Preparar la respuesta
         datos.put("MESSAGE", "Producto eliminado.");
         return new ResponseEntity<>(datos, HttpStatus.ACCEPTED);
     }

@@ -1,4 +1,4 @@
-package com.api.crud.product;
+package com.api.crud.producto;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -11,83 +11,47 @@ public class Producto {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String name; // Puedes cambiar esto a "nombre" si prefieres en español
+    private String name; // Nombre del producto
 
-    private float price; // Puedes cambiar esto a "precio" si prefieres en español
+    private LocalDate fecha; // Fecha de creación o de registro
 
-    private LocalDate fecha;
-
-    // Nuevos campos
     private String codigo; // Código del producto
     private String descripcion; // Descripción del producto
     private String categoria; // Categoría o familia del producto
-    private float costo; // Costo de producción
     private String unidadDeMedida; // Unidad en la que se mide el producto
     private float peso; // Peso del producto
     private String marca; // Marca del producto
-    private float margenDeGanancia; // Margen de ganancia
     private String tipo; // Tipo de producto (e.g., "Inventariable", "Gasto")
     private boolean vendible; // Si el producto está disponible para la venta
     private String estado; // Estado del producto (e.g., "Activo", "Inactivo")
     private String ean13; // Código EAN-13 del producto
     private float volumen; // Volumen del producto
     private String procedencia; // Procedencia del producto (e.g., "Nacional", "Importado")
-    private String moneda; // Moneda en la que se establece el precio
     private String afectoOExento; // Afecto o exento de impuestos
     private String imagen; // URL o ruta del archivo de la imagen
 
     public Producto() {
     }
 
-    public Producto(Long id, String name, float price, LocalDate fecha, String codigo, String descripcion,
-                    String categoria, float costo, String unidadDeMedida, float peso, String marca,
-                    float margenDeGanancia, String tipo, boolean vendible, String estado, String ean13,
-                    float volumen, String procedencia, String moneda, String afectoOExento, String imagen) {
+    public Producto(Long id, String name, LocalDate fecha, String codigo, String descripcion,
+                    String categoria, String unidadDeMedida, float peso, String marca,
+                    String tipo, boolean vendible, String estado, String ean13,
+                    float volumen, String procedencia, String afectoOExento, String imagen) {
         this.id = id;
         this.name = name;
-        this.price = price;
         this.fecha = fecha;
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.categoria = categoria;
-        this.costo = costo;
         this.unidadDeMedida = unidadDeMedida;
         this.peso = peso;
         this.marca = marca;
-        this.margenDeGanancia = margenDeGanancia;
         this.tipo = tipo;
         this.vendible = vendible;
         this.estado = estado;
         this.ean13 = ean13;
         this.volumen = volumen;
         this.procedencia = procedencia;
-        this.moneda = moneda;
-        this.afectoOExento = afectoOExento;
-        this.imagen = imagen;
-    }
-
-    public Producto(String name, float price, LocalDate fecha, String codigo, String descripcion, String categoria,
-                    float costo, String unidadDeMedida, float peso, String marca, float margenDeGanancia, String tipo,
-                    boolean vendible, String estado, String ean13, float volumen, String procedencia, String moneda,
-                    String afectoOExento, String imagen) {
-        this.name = name;
-        this.price = price;
-        this.fecha = fecha;
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.categoria = categoria;
-        this.costo = costo;
-        this.unidadDeMedida = unidadDeMedida;
-        this.peso = peso;
-        this.marca = marca;
-        this.margenDeGanancia = margenDeGanancia;
-        this.tipo = tipo;
-        this.vendible = vendible;
-        this.estado = estado;
-        this.ean13 = ean13;
-        this.volumen = volumen;
-        this.procedencia = procedencia;
-        this.moneda = moneda;
         this.afectoOExento = afectoOExento;
         this.imagen = imagen;
     }
@@ -108,14 +72,6 @@ public class Producto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
     }
 
     public LocalDate getFecha() {
@@ -150,14 +106,6 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public float getCosto() {
-        return costo;
-    }
-
-    public void setCosto(float costo) {
-        this.costo = costo;
-    }
-
     public String getUnidadDeMedida() {
         return unidadDeMedida;
     }
@@ -180,14 +128,6 @@ public class Producto {
 
     public void setMarca(String marca) {
         this.marca = marca;
-    }
-
-    public float getMargenDeGanancia() {
-        return margenDeGanancia;
-    }
-
-    public void setMargenDeGanancia(float margenDeGanancia) {
-        this.margenDeGanancia = margenDeGanancia;
     }
 
     public String getTipo() {
@@ -236,14 +176,6 @@ public class Producto {
 
     public void setProcedencia(String procedencia) {
         this.procedencia = procedencia;
-    }
-
-    public String getMoneda() {
-        return moneda;
-    }
-
-    public void setMoneda(String moneda) {
-        this.moneda = moneda;
     }
 
     public String getAfectoOExento() {

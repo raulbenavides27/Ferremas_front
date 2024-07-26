@@ -1,39 +1,38 @@
-package com.api.crud.product;
+package com.api.crud.producto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("api/v1/Product")
-public class ProductController {
+@RequestMapping("api/v1/producto")
+public class ProductoController {
 
-    private final ProductService productService;
+    private final ProductoService productoService;
 
     @Autowired
-    public ProductController(ProductService productService){
-        this.productService = productService;
-    }
-
-    @GetMapping
-    public List<Product> getProducts(){
-        return productService.getProducts();
+    public ProductoController(ProductoService productoService) {
+        this.productoService = productoService;
     }
 
     @PostMapping
-    public ResponseEntity<Object> registrarProducto(@RequestBody Product product){
-        return productService.createProduct(product);
+    public ResponseEntity<Object> registrarProducto(@RequestBody Producto producto) {
+        return productoService.createProducto(producto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> actualizarProducto(@PathVariable Long id, @RequestBody Product product){
-        return productService.updateProduct(product);
+    public ResponseEntity<Object> actualizarProducto(@PathVariable Long id, @RequestBody Producto producto) {
+        return productoService.updateProducto(id, producto);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> eliminar(@PathVariable Long id){
-        return productService.deleteProduct(id);
+    public ResponseEntity<Object> eliminar(@PathVariable Long id) {
+        return productoService.deleteProducto(id);
+    }
+
+    // Método para obtener todos los productos
+    @GetMapping
+    public ResponseEntity<Object> obtenerProductos() {
+        return ResponseEntity.ok(productoService.getProductos());
     }
 }
