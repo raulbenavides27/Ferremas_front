@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+  .container {
+    margin-top: 120px; /* Ajusta este valor según la altura de tu nav */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  /* Cambiar el color de fondo solo para inputs dentro del formulario específico */
+ input {
+    background-color: #2f4d2f; /* Verde claro */
+  }

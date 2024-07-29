@@ -1,78 +1,202 @@
-<div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="d-flex align-items-stretch">
-      <!-- Formulario de Crear/Editar Producto -->
-      <div class="card p-4 shadow m-2" style="width: 400px;">
-        <h2 class="mb-4 text-center">{{ productoForm.value.id ? 'Editar Producto' : 'Crear Producto' }}</h2>
-        <form [formGroup]="productoForm" (ngSubmit)="guardar()">
+<div class="container mt-4">
+  <!-- Formulario de Crear/Editar Producto -->
+  <div class="card p-4 m-4">
+    <h2 class="text-center mb-4">{{ productoForm.value.id ? 'Editar Producto' : 'Crear Producto' }}</h2>
+    <form [formGroup]="productoForm" (ngSubmit)="guardar()">
+      <div class="row">
+        <!-- Primera fila -->
+        <div class="col-sm-4">
           <div class="form-group">
             <label for="name">Nombre</label>
             <input type="text" id="name" formControlName="name" class="form-control">
-            <div
-            
-              *ngIf="productoForm.get('name')?.invalid && (productoForm.get('name')?.dirty || productoForm.get('name')?.touched)"
+            <div *ngIf="productoForm.get('name')?.invalid && (productoForm.get('name')?.dirty || productoForm.get('name')?.touched)"
               class="text-danger">
               <div *ngIf="productoForm.get('name')?.errors?.['required']">Nombre es requerido.</div>
-              <div *ngIf="productoForm.get('name')?.errors?.['minlength']">Nombre debe tener al menos 3 caracteres.</div>
+              <div *ngIf="productoForm.get('name')?.errors?.['minlength']">Nombre debe tener al menos 3 caracteres.
+              </div>
             </div>
           </div>
+        </div>
+        <div class="col-sm-2">
           <div class="form-group">
-            <label for="price">Precio</label>
-            <input type="number" id="price" formControlName="price" class="form-control">
-            <div
-              *ngIf="productoForm.get('price')?.invalid && (productoForm.get('price')?.dirty || productoForm.get('price')?.touched)"
-              class="text-danger">
-              <div *ngIf="productoForm.get('price')?.errors?.['required']">Precio es requerido.</div>
-              <div *ngIf="productoForm.get('price')?.errors?.['min']">Precio debe ser un valor positivo.</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="fecha">Fecha</label>
-            <input type="date" id="fecha" formControlName="fecha" class="form-control">
-            <div
-              *ngIf="productoForm.get('fecha')?.invalid && (productoForm.get('fecha')?.dirty || productoForm.get('fecha')?.touched)"
+            <label for="fecha">Fecha de Creación</label>
+            <input type="date" id="fecha" formControlName="fecha" class="form-control" [value]="hoy">
+            <div *ngIf="productoForm.get('fecha')?.invalid && (productoForm.get('fecha')?.dirty || productoForm.get('fecha')?.touched)"
               class="text-danger">
               <div *ngIf="productoForm.get('fecha')?.errors?.['required']">Fecha es requerida.</div>
             </div>
           </div>
-          <div class="form-group mt-3">
-            <button type="submit" class="btn btn-primary w-100" [disabled]="productoForm.invalid">Guardar</button>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="codigo">Código</label>
+            <input type="text" id="codigo" formControlName="codigo" class="form-control">
           </div>
-          <div class="form-group mt-3">
-            <button type="button" class="btn btn-secondary w-100 " (click)="limpiarFormulario()">Cancelar</button>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="ean13">EAN-13</label>
+            <input type="text" id="ean13" formControlName="ean13" class="form-control">
           </div>
-        </form>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" formControlName="categoria" class="form-control">
+              <option value="insumo">Insumo</option>
+              <option value="insumo_producto_final">Insumo/Producto Final</option>
+              <option value="producto_final">Producto Final</option>
+            </select>
+          </div>
+        </div>
       </div>
-  
-      <!-- Lista de Productos Registrados -->
-      <div class="card p-4 shadow m-2" style="flex: 1;">
-        <h2>Productos registrados</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nombre</th>
-              <th>Precio</th>
-              <th>Fecha</th>
-              <th>Opción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of productos">
-              <th>{{item.id}}</th>
-              <td>{{item.name}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.fecha}}</td>
-              <td>
-                  <button class="btn btn-primary btn-sm" (click)="editar(item)">
-                    Editar
-                  </button>
-                  <button class="btn btn-danger btn-sm" (click)="eliminar(item)">
-                    Eliminar
-                  </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="row">
+        <!-- Segunda fila -->
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <input type="text" id="descripcion" formControlName="descripcion" class="form-control">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="unidadDeMedida">Unidad de Medida</label>
+            <select id="unidadDeMedida" formControlName="unidadDeMedida" class="form-control">
+              <option value="unidad">Unidad</option>
+              <option value="metro">Metro</option>
+              <option value="tira">Tira</option>
+              <option value="kilogramo">Kilogramo</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="peso">Peso</label>
+            <input type="number" id="peso" formControlName="peso" class="form-control">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="volumen">Volumen</label>
+            <input type="number" id="volumen" formControlName="volumen" class="form-control">
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <!-- Tercera fila -->
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="afectoOExento">Afecto o Exento</label>
+            <select id="afectoOExento" formControlName="afectoOExento" class="form-control">
+              <option value="afecto">Afecto</option>
+              <option value="exento">Exento</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="estado">Estado</label>
+            <select id="estado" formControlName="estado" class="form-control">
+              <option value="activo">Activo</option>
+              <option value="desactivo">Desactivo</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="marca">Marca</label>
+            <select id="marca" formControlName="marca" class="form-control">
+              <option value="marca1">Marca 1</option>
+              <option value="marca2">Marca 2</option>
+              <option value="marca3">Marca 3</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <select id="tipo" formControlName="tipo" class="form-control">
+              <option value="inventariable">Inventariable</option>
+              <option value="gasto_servicio">Gasto/Servicio</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="imagen">Imagen</label>
+            <input type="text" id="imagen" formControlName="imagen" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Cuarta fila -->
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="vendible">Vendible</label><br>
+            <input type="checkbox" id="vendible" formControlName="vendible" class="form-check-input">
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary" [disabled]="productoForm.invalid">Guardar</button>
+        <button type="button" class="btn btn-secondary ms-2" (click)="limpiarFormulario()">Cancelar</button>
+      </div>
+    </form>
   </div>
+
+  <!-- Lista de Productos Registrados -->
+  <div class="card p-4 shadow m-2">
+    <h2>Productos Registrados</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Código</th>
+          <th>Descripción</th>
+          <th>Categoría</th>
+          <th>Unidad de Medida</th>
+          <th>Peso</th>
+          <th>Marca</th>
+          <th>Tipo</th>
+          <th>Vendible</th>
+          <th>Estado</th>
+          <th>EAN-13</th>
+          <th>Volumen</th>
+          <th>Afecto o Exento</th>
+          <th>Imagen</th>
+          <th>Opción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of productos">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.fecha}}</td>
+          <td>{{item.codigo}}</td>
+          <td>{{item.descripcion}}</td>
+          <td>{{item.categoria}}</td>
+          <td>{{item.unidadDeMedida}}</td>
+          <td>{{item.peso}}</td>
+          <td>{{item.marca}}</td>
+          <td>{{item.tipo}}</td>
+          <td>{{item.vendible ? 'Sí' : 'No'}}</td>
+          <td>{{item.estado}}</td>
+          <td>{{item.ean13}}</td>
+          <td>{{item.volumen}}</td>
+          <td>{{item.afectoOExento}}</td>
+          <td>{{item.imagen}}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="editar(item)">
+              Editar
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="eliminar(item)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
