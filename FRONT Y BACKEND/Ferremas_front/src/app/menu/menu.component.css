@@ -1,0 +1,50 @@
+nav {
+  background-color: #343a40;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-right: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  display: inline;
+  margin-right: 20px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  background-color: #6c757d;
+  border-radius: 5px;
+}
+
+/* Estilo para el mensaje de conexión */
+.nav-message {
+  color: #ffffff; /* Color del texto */
+  font-weight: bold; /* Texto en negrita */
+  margin-left: auto; /* Alinear a la derecha */
+  margin-right: 20px; /* Espacio entre el mensaje y otros elementos */
+}
